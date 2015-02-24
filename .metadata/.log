@@ -1,0 +1,27 @@
+!SESSION 2015-02-05 12:51:37.900 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -clean
+
+!ENTRY org.eclipse.osgi 2 0 2015-02-05 12:51:38.746
+!MESSAGE The plugin "com.jcraft.eclipse.team.sftp" with the version "0.0.4" and location "reference:file:plugins/com.jcraft.eclipse.team.sftp_0.0.4.jar" is an old style Eclipse 2.0 plugin with no OSGi bundle manifest.  Support for Eclipse 2.0 style plugins will be removed in a future release. Refer to the migration guide for details.
+
+!ENTRY org.eclipse.osgi 2 0 2015-02-05 12:51:39.032
+!MESSAGE The plugin "org.eclipse.team.extras" with the version "3.1.0" and location "reference:file:plugins/org.eclipse.team.extras_3.1.0/" is an old style Eclipse 2.0 plugin with no OSGi bundle manifest.  Support for Eclipse 2.0 style plugins will be removed in a future release. Refer to the migration guide for details.
+
+!ENTRY org.eclipse.osgi 2 0 2015-02-05 12:51:39.038
+!MESSAGE The plugin "org.eclipse.team.ftp" with the version "3.1.0" and location "reference:file:plugins/org.eclipse.team.ftp_3.1.0/" is an old style Eclipse 2.0 plugin with no OSGi bundle manifest.  Support for Eclipse 2.0 style plugins will be removed in a future release. Refer to the migration guide for details.
+
+!ENTRY org.eclipse.osgi 2 0 2015-02-05 12:51:39.046
+!MESSAGE The plugin "org.eclipse.team.webdav" with the version "3.1.0" and location "reference:file:plugins/org.eclipse.team.webdav_3.1.0/" is an old style Eclipse 2.0 plugin with no OSGi bundle manifest.  Support for Eclipse 2.0 style plugins will be removed in a future release. Refer to the migration guide for details.
+
+!ENTRY org.eclipse.osgi 2 0 2015-02-05 12:51:39.088
+!MESSAGE The plugin "org.eclipse.webdav" with the version "3.0.0" and location "reference:file:plugins/org.eclipse.webdav_3.0.0/" is an old style Eclipse 2.0 plugin with no OSGi bundle manifest.  Support for Eclipse 2.0 style plugins will be removed in a future release. Refer to the migration guide for details.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-02-05 12:52:13.652
+!MESSAGE No repository found at file:/C:/ColdFusionBuilder3/configuration/org.eclipse.osgi/bundles/160/data/listener_1925729951/.
+
+!ENTRY com.adobe.editor.cfml 4 0 2015-02-05 12:53:29.074
+!MESSAGE 
