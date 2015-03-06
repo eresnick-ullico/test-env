@@ -1,5 +1,6 @@
 <h1>Sharepoint Project</h1>
 
 <cfoutput>
-<h3>Hello, #portalUser#</h3>
+<h3>Hello, #user.firstname#</h3>
 </cfoutput>
+
