@@ -42,6 +42,15 @@
 	<cfif not isDefined("session.id")>
 		<cfset session.id = 0>
 	</cfif>
+
+
+	<!---Query to find Users--->
+	<cfquery name ="srchUsers" datasource="#application.db#" blockfactor="100" cachedwithin="#createTimeSpan(0, 1, 0, 0)#">
+	SELECT *
+	FROM  sharepointrequestusers
+	ORDER BY spUserLastName
+	</cfquery>
+
 	
 	<!--- Get fromPgm and currPgm --->
 	<cfset temp=GetFileFromPath(CGI.HTTP_REFERER)>
