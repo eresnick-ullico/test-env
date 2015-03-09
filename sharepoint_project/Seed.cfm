@@ -1,9 +1,6 @@
-<!--- This program is Part 1 of the 2 part process for Group Supplemental ILA Enrollment Form --->
-<!--- Part 1 is the Main Enrollment Form --->
-<!--- Part 2 is the Beneficiary Form --->
 <cfparam name="SubmitButton" default="">
 
-<cfset title = "Enrollment Form">
+<cfset title = "Create SharePoint Project">
 <cfinclude template="zinc-head.cfm">
 
 <cfparam name="uniID" default="0">

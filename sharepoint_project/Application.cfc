@@ -20,10 +20,10 @@
 	<!--- Set up the application. --->
 	<cfset application.appStarted = now()>
 	<cfset application.ourHitCount = 0>
-	<cfset application.Title = "xxx">
+	<cfset application.Title = "SharePointRequest">
 	<cfset application.DB = "SharePointRequest">
 	<cfif not isDefined("application.ShortName")>
-		<cfset application.ShortName = "xxxx">
+		<cfset application.ShortName = "SPR">
 	</cfif>
 	<!--- Return out. --->
 	<cfreturn true />
@@ -95,14 +95,11 @@
 	
 	<!--- Setup Special admin system --->
 	<cfswitch expression = "#theUser#">
-		<cfcase value = "mbenjami">
-			<cfset BoardAdmin = "Y">
-		</cfcase>
-		<cfcase value = "TDaniel">
-			<cfset BoardAdmin = "R">
+		<cfcase value = "eresnick">
+			<cfset Admin = "Y">
 		</cfcase>
 		<cfdefaultcase>
-			<cfset BoardAdmin = "N">
+			<cfset Admin = "N">
 		</cfdefaultcase>
 	</cfswitch>
 
@@ -122,22 +119,42 @@
 	<cfif NeedFooter is 1>
 		<cfinclude template="zinc-foot.cfm">
 	</cfif>
+
 	<!--- Display Structures for jBuging --->
 	<cfif jBug is 1><br><br><br><br>
 		<h1 class="bgBeige">jBug information...<br>&nbsp;</h1>
 		<div class="PrintHide">
-			<cfif isDefined("application")><h2>Application Structure</h2><cfdump var="#application#"></cfif>
-			<cfif isDefined("session")><h2>Session Structure</h2><cfdump var="#session#"></cfif>
-			<cfif isDefined("url")><h2>URL Structure</h2><cfdump var="#url#"></cfif>
-			<cfif isDefined("form")><h2>Form Structure</h2><cfdump var="#form#"></cfif>
-			<cfif isDefined("CGI")><h2>CGI</h2><cfdump var="#CGI#"></cfif>
-			<cfif isDefined("fromPgm")><h2>fromPgm=#fromPgm#</h2></cfif>
-			<cfif isDefined("currPgm")><h2>currPgm=#currPgm#</h2></cfif>
-			<cfif isDefined("TB")><cfdump var="#TB#" label="TextBlock (TB)"><h3>inSidebarLeft=#inSidebarLeft#</h3></cfif>
+			<cfif isDefined("application")>
+				<h2>Application Structure</h2>
+				<cfdump var="#application#">
+			</cfif>
+			<cfif isDefined("session")>
+				<h2>Session Structure</h2>
+				<cfdump var="#session#">
+			</cfif>
+			<cfif isDefined("url")>
+				<h2>URL Structure</h2>
+				<cfdump var="#url#">
+			</cfif>
+			<cfif isDefined("form")>
+				<h2>Form Structure</h2>
+				<cfdump var="#form#">
+			</cfif>
+			<cfif isDefined("CGI")>
+				<h2>CGI</h2><cfdump var="#CGI#">
+			</cfif>
+			<cfif isDefined("fromPgm")>
+				<h2>fromPgm=#fromPgm#</h2>
+			</cfif>
+			<cfif isDefined("currPgm")>
+				<h2>currPgm=#currPgm#</h2>
+			</cfif>
+			<cfif isDefined("TB")>
+				<cfdump var="#TB#" label="TextBlock (TB)">
+				<h3>inSidebarLeft=#inSidebarLeft#</h3>
+			</cfif>
 		</div>
 	</cfif>
-	</body>
-	</html>
 	<!--- Return out. --->
 	<cfreturn />
 </cffunction>
@@ -157,35 +174,4 @@
 	<cfreturn />
 </cffunction>
 
-<!--- <cffunction name="OnError" access="public" returntype="void" output="true" hint="Fires when an exception occures that is not caught by a try/catch.">
-	<!--- Define arguments. --->
-	<cfargument name="Exception" type="any" required="true" />
-	<cfargument name="EventName" type="string" required="false" default="" />
-<cfmail to="webmaster@ullico.com" from="error@ullico.com" subject="Error on Ullico website" type="html">
-An error has occured!<br>
-Event Name: #Arguments.Eventname#<br>
-Message: #Arguments.Exception.message#<br>
-Root Cause Message: #Arguments.Exception.rootcause.message#<br>
-</cfmail>
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-	<html>
-	<head>
-		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
-		<title>Error | Ullico</title>
-	<style>
-		BODY {background: white; color : black; font-family : Helvetica, Arial, sans-serif; font-size: 12px; text-align: left;
-			background-image:url('tardis/img/pop-header-bg.jpg'); background-repeat: repeat-x; margin: 0 0 0 10px;}
-	</style>
-	</head>
-	<body>
-		<blockquote><br><br>
-		<a href="http://www.ullico.com"><img name="UllicoBanner_r1_c1" src="tardis/img/UllicoBanner_r1_c1.jpg" width="249" height="104" border="0" id="UllicoBanner_r1_c1" alt="" /></a><br><br><br>
-		<h1>Error</h1>
-		<p>We are very sorry, but a technical problem prevents us from completing your request.</p>
-		<p>Please try again in five minutes.</p>
-		<p>An email with information about this problem is being forwarded to the webmaster.</p>
-		</blockquote>
-	</body>
-	</html>
-</cffunction> --->
 </cfcomponent>
