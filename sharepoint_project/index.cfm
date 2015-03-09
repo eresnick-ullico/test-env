@@ -1,18 +1,17 @@
+<cfparam name="form.spProjectName" default="">
+
 <h1>Setup a Sharepoint Project</h1>
 
 <cfoutput>
 <h3>Hello, #user.firstname#</h3>
+<!--- <cfdump var=#user#> --->
 </cfoutput>
 
-<cfquery name ="srchUsers" datasource="#application.db#" blockfactor="100">
-	SELECT *
-	FROM  sharepointrequestusers
-	ORDER BY spUserLastName
-</cfquery>
+<cfform action="index.cfm">
 
 <h4>Name of SharePoint Project</h4>
 
-	<cfinput type="text" name="spProjectName" size="30" value="#spProjectName#">
+	<cfinput type="text" name="spProjectName" size="30" value="#form.spProjectName#">
 
 <h4>Select Read Only Users</h4>
 
@@ -33,8 +32,10 @@
 	</SELECT>
 
 
+<br /><br />
+<input type="submit" name="submitButton" value="submit">
 
-
+</cfform>
 
 
 
