@@ -43,7 +43,6 @@
 		<cfset session.id = 0>
 	</cfif>
 
-
 	<!---Query to find Users--->
 	<cfquery name ="srchUsers" datasource="#application.db#" blockfactor="100" cachedwithin="#createTimeSpan(0, 1, 0, 0)#">
 	SELECT *
