@@ -3,13 +3,14 @@
 <cfparam name="form.spRequestDate" default="#CreateODBCDateTime(now())#">
 <cfparam name="form.spProjectOwner" default="#user.id#">
 
-<cfinsert datasource="#application.db#" tablename="SharePointRequestTable">
+<!---Shorter Code for Insert into SharePointRequestTable--->
+<!--- <cfinsert datasource="#application.db#" tablename="SharePointRequestTable"> --->
 
-<!--- <cfquery name="AddProject" datasource="#application.db#"> 
-    INSERT INTO SharePointRequestTable 
-    VALUES ('#form.spProjectName#', '#form.spProjectAddInfo#', '#form.spProjectOwner#', #form.spProjectReadCollaborators#, #form.spProjectReadWriteCollaborators#, #form.spRequestDate#, #form.spRequestDelete#, #form.spDeleteDate#) 
+<cfquery name="AddProject" datasource="#application.db#"> 
+    INSERT INTO SharePointRequestTable (spProjectName, spProjectAddInfo, spProjectOwner, spProjectReadCollaborators, spProjectReadWriteCollaborators, spRequestDate)
+    VALUES ('#form.spProjectName#', '#form.spProjectAddInfo#', '#form.spProjectOwner#', #form.spProjectReadCollaborators#, #form.spProjectReadWriteCollaborators#, #form.spRequestDate#); 
 </cfquery> 
-  --->
+ 
 
 <h1>Project Request Succesfully Sent</h1> 
 

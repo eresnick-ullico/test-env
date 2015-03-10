@@ -1,3 +1,4 @@
+<!---Setup default params for Project variables--->
 <cfparam name="form.spProjectName" default="">
 <cfparam name="form.spProjectAddInfo" default="">
 <cfparam name="form.spProjectReadCollaborators" default="">
@@ -11,6 +12,7 @@
 <!--- <cfdump var=#user#> --->
 </cfoutput>
 
+<!---Form to create Project. Runs insertAction.cfm to post info to the database--->
 <cfform action="insertAction.cfm" method="post">
 
 <h4>Name of SharePoint Project</h4>
