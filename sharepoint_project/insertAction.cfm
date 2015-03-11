@@ -39,7 +39,8 @@
 	<cfset readWriteNames = #spUserID#>
 </cfoutput>
 
-<cfmail from="#user.id#@ullico.com" to="eresnick@ullico.com" subject="SharePoint Project Setup Request - #form.spProjectName#" type="html">
+<!--- ttran@ullico.com, fkoetje@ullico.com, jpratte@ullico.com--->
+<cfmail from="#user.id#@ullico.com" to="eresnick@ullico.com" cc="#readNames#@ullico.com, #readWriteNames#@ullico.com" subject="SharePoint Project Setup Request - #form.spProjectName#" type="html">
 
 	<html>
 		<body>
