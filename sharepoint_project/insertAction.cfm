@@ -6,23 +6,58 @@
 <!---Shorter Code for Insert into SharePointRequestTable--->
 <!--- <cfinsert datasource="#application.db#" tablename="SharePointRequestTable"> --->
 
+<!---Query to Add Project to SharePointRequestTable--->
 <cfquery name="AddProject" datasource="#application.db#"> 
   INSERT INTO SharePointRequestTable (spProjectName, spProjectAddInfo, spProjectOwner, spProjectReadCollaborators, spProjectReadWriteCollaborators, spRequestDate)
   VALUES ('#form.spProjectName#', '#form.spProjectAddInfo#', '#form.spProjectOwner#', #form.spProjectReadCollaborators#, #form.spProjectReadWriteCollaborators#, #form.spRequestDate#); 
 </cfquery> 
 
+<!---Query to take fk for Read Only collaborators, and replace it with their Ullico ID--->
 <cfquery name="GetReadNames" datasource="#application.db#">
 	SELECT spUserID
 	FROM SharePointRequestUsers
 	WHERE id=#form.spProjectReadCollaborators#
 </cfquery>
+</cfoutput>
 
+<!---Assign Read Only user id to variable called 'readNames'--->
+<cfoutput query="GetReadNames">
+	<cfset readNames = #spUserID#>
+</cfoutput>
+
+<cfoutput>
+<!---Query to take fk for Read/Write collaborators, and replace it with their Ullico ID--->
 <cfquery name="GetReadWriteNames" datasource="#application.db#">
 	SELECT spUserID
 	FROM SharePointRequestUsers
 	WHERE id=#form.spProjectReadWriteCollaborators#
 </cfquery>
 </cfoutput>
+
+<!---Assign Read/write user id to variable called 'readWriteNames'--->
+<cfoutput query="GetReadWriteNames">
+	<cfset readWriteNames = #spUserID#>
+</cfoutput>
+
+<cfmail from="#user.id#@ullico.com" to="eresnick@ullico.com" subject="SharePoint Project Setup Request - #form.spProjectName#" type="html">
+
+	<html>
+		<body>
+			<h4>SharePoint Project Request</h4>
+
+			<p>
+				<b>Project Name</b>: #form.spProjectName# <br />
+				<b>Project Owner</b>: #user.firstname# #user.lastname# - #user.id#@ullico.com <br />
+				<b>Date Requested</b>: #form.spRequestDate# <br />
+				<b>Read/Write</b>: #readWriteNames# <br />
+				<b>Read Only</b>: #readNames# <br />
+			</p>
+		
+		</body>
+		</html>
+</cfmail>
+
+
 
 <h1>Project Request Succesfully Sent</h1> 
 
@@ -41,18 +76,12 @@
 			<td>#form.spProjectName#</td>
 			<td>#user.firstname# #user.lastname#</td>
 			<td>#form.spRequestDate#</td>
-		</cfoutput>
-		<cfoutput query="GetReadWriteNames">
-			<td>#spUserID#</td>
-		</cfoutput>
-		<cfoutput query="GetReadNames">
-			<td>#spUserID#</td>
+			<td>#readWriteNames#</td>
+			<td>#readNames#</td>
 		</cfoutput>
 	</tr>
 
-
 </table>
-
 
 
 <p>
