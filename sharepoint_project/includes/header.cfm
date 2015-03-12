@@ -11,7 +11,7 @@
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	</head>
 
-	<body>
+<body>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -26,7 +26,6 @@
 			<a class="navbar-brand" href="http://my.ullico.com" target="_blank">
         <img alt="Brand" src="./assets/images/ullicologo_20.jpg">
       </a>
-
     </div>
 
 		<!---Non-collapsing menu.  Displays User name--->
