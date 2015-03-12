@@ -1,5 +1,6 @@
 <cfoutput>
 
+<!---Define Request Datee and Project Owner--->
 <cfparam name="form.spRequestDate" default="#CreateODBCDateTime(now())#">
 <cfparam name="form.spProjectOwner" default="#user.id#">
 
@@ -39,6 +40,7 @@
 	<cfset readWriteNames = #spUserID#>
 </cfoutput>
 
+<!---E-mail SharePoint Project Request to Fred, Tuan, Jeff, and Eric.  cc's collaborators as well--->
 <!--- ttran@ullico.com, fkoetje@ullico.com, jpratte@ullico.com--->
 <cfmail from="#user.id#@ullico.com" to="eresnick@ullico.com" cc="#readNames#@ullico.com, #readWriteNames#@ullico.com" subject="SharePoint Project Setup Request - #form.spProjectName#" type="html">
 
@@ -55,11 +57,12 @@
 			</p>
 		
 		</body>
-		</html>
+	</html>
+
 </cfmail>
 
 
-
+<!---Displayed if request is created succesfully--->
 <h1>Project Request Succesfully Sent</h1> 
 
 <table style="width:100%">
