@@ -54,11 +54,10 @@
 				<b>Date Requested</b>: #form.spRequestDate# <br />
 				<b>Read/Write</b>: #readWriteNames# <br />
 				<b>Read Only</b>: #readNames# <br />
+				<b>Additional Info</b>: #form.spProjectAddInfo# 
 			</p>
 		
 		</body>
-	</html>
-
 </cfmail>
 
 
@@ -73,6 +72,7 @@
 		<td>Date Requested</td>
 		<td>Read/Write</td>
 		<td>Read Only</td>
+		<td>Additional Info</td>
 	</tr>
 
 	<tr>
@@ -82,6 +82,7 @@
 			<td>#form.spRequestDate#</td>
 			<td>#readWriteNames#</td>
 			<td>#readNames#</td>
+			<td>#form.spProjectAddInfo#</td>
 		</cfoutput>
 	</tr>
 
