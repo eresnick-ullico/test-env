@@ -11,7 +11,6 @@
 	<cfset this.SessionTimeout = CreateTimeSpan( 0, 0, 10, 0 )>
 	<cfset this.SessionManagement = true>
 	<cfset this.SetClientCookies = true>
-	<cfset NeedFooter = 0>
 
 <!--- Define the page request properties. --->
 <cfsetting requesttimeout="600" showdebugoutput="true" enablecfoutputonly="false" />
@@ -25,6 +24,10 @@
 	<cfif not isDefined("application.ShortName")>
 		<cfset application.ShortName = "SPR">
 	</cfif>
+
+	<!---Include header.cfm file--->
+	<cfinclude template = "includes/header.cfm">
+
 	<!--- Return out. --->
 	<cfreturn true />
 </cffunction>
@@ -124,9 +127,9 @@
 </cffunction>
 
 <cffunction name="OnRequestEnd" access="public" returntype="void" output="true" hint="Fires after the page processing is complete.">
-	<cfif NeedFooter is 1>
-		<cfinclude template="zinc-foot.cfm">
-	</cfif>
+
+	<!---Include header.cfm file--->
+	<cfinclude template="includes/footer.cfm">
 
 	<!--- Display Structures for jBuging --->
 	<cfif jBug is 1><br><br><br><br>
