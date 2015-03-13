@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Ullico SharePoint Project Request App</title>
+    <!-- jquery script -->
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -31,7 +32,7 @@
 		<!---Non-collapsing menu.  Displays User name--->
     <div class="nav navbar-nav">
       <ul class="nav navbar-nav">
-        <li><a href=>Hello, <cfoutput>#user.firstname#</cfoutput></a></li>
+        <li><a href=>Hello, <cfoutput>#user.firstname# #user.lastname#</cfoutput></a></li>
       </ul>   
     </div>
 
@@ -43,10 +44,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-<!---SharePoint Logo--->
-<!--- <div class="row">
-	<div class="col-md-6 col-md-offset-3">	
-		<img src = "./assets/images/sharepoint-logo.png">
-	</div>
-</div> --->

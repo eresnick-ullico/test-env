@@ -80,29 +80,32 @@
 <!---Displayed if request is created succesfully--->
 <h1>Project Request Succesfully Sent</h1> 
 
-<table style="width:100%">
+	<div class = "row">
+		<div class="col-md-10 col-md-offset-1">
+		<table class="table table-bordered">
 
-	<tr>
-		<td>Project Name</td>
-		<td>Project Requested By</td>
-		<td>Date Requested</td>
-		<td>Project Owner</td>
-		<td>Read/Write</td>
-		<td>Read Only</td>
-		<td>Additional Info</td>
-	</tr>
+			<tr>
+				<td>Project Name</td>
+				<td>Project Requested By</td>
+				<td>Date Requested</td>
+				<td>Project Owner</td>
+				<td>Read/Write</td>
+				<td>Read Only</td>
+				<td>Additional Info</td>
+			</tr>
 
-	<tr>
-		<cfoutput>
-			<td>#form.spProjectName#</td>
-			<td>#user.firstname# #user.lastname#</td>
-			<td>#form.spRequestDate#</td>
-			<td>#OwnerNames#</td>
-			<td>#readWriteNames#</td>
-			<td>#readNames#</td>
-			<td>#form.spProjectAddInfo#</td>
-		</cfoutput>
-	</tr>
-
-</table>
+			<tr>
+				<cfoutput>
+					<td>#form.spProjectName#</td>
+					<td>#user.firstname# #user.lastname#</td>
+					<td>#form.spRequestDate#</td>
+					<td>#OwnerNames#</td>
+					<td>#readWriteNames#</td>
+					<td>#readNames#</td>
+					<td>#form.spProjectAddInfo#</td>
+				</cfoutput>
+			</tr>
+		</table>
+		</div>
+	</div>
 

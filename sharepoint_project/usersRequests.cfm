@@ -1,13 +1,30 @@
+<!---Query to take fk for Read/Write collaborators, and replace it with their Ullico ID--->
+<cfoutput>
+<cfquery name="GetUsersID" datasource="#application.db#">
+	SELECT ID
+	FROM SharePointRequestUsers
+	WHERE spuserid="#user.id#"
+</cfquery>
+</cfoutput>
+
+<!---Assign Read/write user id to variable called 'readWriteNames'--->
+<cfoutput query="GetUsersID">
+	<cfset UserID = #ID#>
+</cfoutput>
+
 <cfoutput>
 
-<!---Query to get all SharePoint Requests--->
+<!---Query to get User's SharePoint Requests--->
 <cfquery name="getSharePointRequests" datasource="#application.db#">
 	SELECT *
 	FROM SharePointRequestTable
+	WHERE spProjectOwner = #UserID#
+	OR spProjectReadWriteCollaborators = #UserID#
+	OR spProjectReadCollaborators = #UserID#
+	OR spProjectRequestBy = "#user.id#"
 </cfquery>
 
-<cfif #Admin#>
-	<p>You have access</p>
+	<h2>#user.firstname# #user.lastname#'s SharePoint Project Requests</h2>
 	<div class = "row">
 		<div class="col-md-10 col-md-offset-1">
 		<table class="table table-bordered">
@@ -41,8 +58,4 @@
 		</div>
 	</div>
 
-
-	<cfelse>
-	<p>You do not have access to this page</p>
-</cfif>
 </cfoutput>

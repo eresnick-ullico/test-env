@@ -12,6 +12,7 @@
 	<cfset this.SessionManagement = true>
 	<cfset this.SetClientCookies = true>
 
+
 <!--- Define the page request properties. --->
 <cfsetting requesttimeout="600" showdebugoutput="true" enablecfoutputonly="false" />
 
@@ -25,6 +26,7 @@
 		<cfset application.ShortName = "SPR">
 	</cfif>
 
+	
 	<!--- Return out. --->
 	<cfreturn true />
 
@@ -101,8 +103,6 @@
 
 	<!--- Find User and store in "theUser" --->		
 	<CF_getUser in=#tempUser# out=theUser out2=user>
-
-
 	
 	<!--- Setup Special admin system --->
 	<cfswitch expression = "#theUser#">
@@ -124,15 +124,14 @@
 	<cfinclude template = "includes/header.cfm">
 	<!--- Include the requested page. --->
 	<cfinclude template="#ARGUMENTS.TargetPage#" />
-	<!---Include header.cfm file--->
+	<!---Include footer.cfm file--->
 	<cfinclude template="includes/footer.cfm">
 	<!--- Return out. --->
 	<cfreturn />
+
 </cffunction>
 
 <cffunction name="OnRequestEnd" access="public" returntype="void" output="true" hint="Fires after the page processing is complete.">
-
-	
 
 	<!--- Display Structures for jBuging --->
 	<cfif jBug is 1><br><br><br><br>
