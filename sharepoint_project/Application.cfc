@@ -25,11 +25,9 @@
 		<cfset application.ShortName = "SPR">
 	</cfif>
 
-	<!---Include header.cfm file--->
-	<cfinclude template = "includes/header.cfm">
-
 	<!--- Return out. --->
 	<cfreturn true />
+
 </cffunction>
 
 <cffunction name="OnRequestStart" access="public" returntype="boolean" output="false" hint="Fires at first part of page processing.">
@@ -103,14 +101,16 @@
 
 	<!--- Find User and store in "theUser" --->		
 	<CF_getUser in=#tempUser# out=theUser out2=user>
+
+
 	
 	<!--- Setup Special admin system --->
 	<cfswitch expression = "#theUser#">
 		<cfcase value = "eresnick">
-			<cfset Admin = "Y">
+			<cfset Admin = 1>
 		</cfcase>
 		<cfdefaultcase>
-			<cfset Admin = "N">
+			<cfset Admin = 0>
 		</cfdefaultcase>
 	</cfswitch>
 
@@ -120,16 +120,19 @@
 <cffunction name="OnRequest" access="public" returntype="void" output="true" hint="Fires after pre page processing is complete.">
 	<!--- Define arguments. --->
 	<cfargument name="TargetPage" type="string" required="true" />
+	<!---Include header.cfm file--->
+	<cfinclude template = "includes/header.cfm">
 	<!--- Include the requested page. --->
 	<cfinclude template="#ARGUMENTS.TargetPage#" />
+	<!---Include header.cfm file--->
+	<cfinclude template="includes/footer.cfm">
 	<!--- Return out. --->
 	<cfreturn />
 </cffunction>
 
 <cffunction name="OnRequestEnd" access="public" returntype="void" output="true" hint="Fires after the page processing is complete.">
 
-	<!---Include header.cfm file--->
-	<cfinclude template="includes/footer.cfm">
+	
 
 	<!--- Display Structures for jBuging --->
 	<cfif jBug is 1><br><br><br><br>

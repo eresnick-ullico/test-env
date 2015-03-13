@@ -1,5 +1,3 @@
-<cfinclude template = "includes/header.cfm">
-
 <!---Setup default params for Project variables--->
 <cfparam name="form.spProjectName" default="">
 <cfparam name="form.spProjectAddInfo" default="">

@@ -106,7 +106,3 @@
 
 </table>
 
-
-<p>
-<a href="index.cfm">Create New Request</a> 
-</p>
