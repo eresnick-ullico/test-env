@@ -18,10 +18,11 @@
 <cfquery name="getSharePointRequests" datasource="#application.db#">
 	SELECT *
 	FROM SharePointRequestTable
-	WHERE spProjectOwner = #UserID#
-	OR spProjectReadWriteCollaborators = #UserID#
+	WHERE spRequestDelete = 0
+	AND (spProjectReadWriteCollaborators = #UserID#
 	OR spProjectReadCollaborators = #UserID#
 	OR spProjectRequestBy = "#user.id#"
+	OR spProjectOwner = #UserID#)
 </cfquery>
 
 <div class="row">
@@ -33,7 +34,7 @@
 <div class = "row">
 	<div class="col-md-10 col-md-offset-1">
 		<table class="table table-bordered">
-
+			<tbody>
 			<tr>
 				<th>ID</th>
 				<th>Project Name</th>
@@ -56,16 +57,15 @@
 				<td>#spProjectReadWriteCollaborators#</td>
 				<td>#spProjectReadCollaborators#</td>
 				<td>#spProjectAddInfo#</td>
-				<td>
-						<cfif #spProjectOwner# eq #UserID#>
-							<form action="deleteAction.cfm?id=#id#" method="post">
-							<input type="submit" value="Delete">	
-						<cfelse>
-							N/A
-						</cfif>
-				</td>
+				<!---If the user is the Project Owner, then they can Delete the request--->
+			<cfif #spProjectOwner# eq #UserID#>
+				<td><form action="deleteAction.cfm?id=#id#" method="post"> <input type="submit" value="Delete"></td>
+			<cfelse>
+				<td>N/A</td>
+			</cfif>
 			</tr>
 		</cfloop>
+		</tbody>
 		</table>
 	</div>
 </div>
