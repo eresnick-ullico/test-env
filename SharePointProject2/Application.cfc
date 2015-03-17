@@ -21,7 +21,7 @@
 	<cfset application.appStarted = now()>
 	<cfset application.ourHitCount = 0>
 	<cfset application.Title = "SharePointRequest">
-	<cfset application.DB = "SharePointRequest">
+	<cfset application.DB = "SharePointAppDB">
 	<cfif not isDefined("application.ShortName")>
 		<cfset application.ShortName = "SPR">
 	</cfif>
@@ -49,7 +49,7 @@
 	<!---Query to find Users--->
 	<cfquery name ="srchUsers" datasource="#application.db#" blockfactor="100" cachedwithin="#createTimeSpan(0, 1, 0, 0)#">
 	SELECT *
-	FROM  sharepointrequestusers
+	FROM  usertable
 	ORDER BY spUserLastName
 	</cfquery>
 
