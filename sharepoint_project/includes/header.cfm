@@ -39,7 +39,8 @@
     <!--- Collect the nav links, forms, and other content for toggling --->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="./index.cfm">Create New SharePoint Project</a></li>
+        <li><a href="./usersRequests.cfm">View Your Projects</a></li>
+        <li><a href="./index.cfm">Create SharePoint Project</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

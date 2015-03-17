@@ -24,9 +24,14 @@
 	OR spProjectRequestBy = "#user.id#"
 </cfquery>
 
-	<h2>#user.firstname# #user.lastname#'s SharePoint Project Requests</h2>
-	<div class = "row">
-		<div class="col-md-10 col-md-offset-1">
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+		<h2>#user.firstname# #user.lastname#'s SharePoint Projects</h2>
+	</div>
+</div>
+
+<div class = "row">
+	<div class="col-md-10 col-md-offset-1">
 		<table class="table table-bordered">
 
 			<tr>
@@ -51,11 +56,18 @@
 				<td>#spProjectReadWriteCollaborators#</td>
 				<td>#spProjectReadCollaborators#</td>
 				<td>#spProjectAddInfo#</td>
-				<td>#spRequestDelete#</td>
+				<td>
+						<cfif #spProjectOwner# eq #UserID#>
+							<form action="deleteAction.cfm?id=#id#" method="post">
+							<input type="submit" value="Delete">	
+						<cfelse>
+							N/A
+						</cfif>
+				</td>
 			</tr>
 		</cfloop>
 		</table>
-		</div>
 	</div>
+</div>
 
 </cfoutput>
