@@ -47,7 +47,7 @@
 				<td>#spRequestDate#</td>
 				<td>#spAddInfo#</td>
 			</tr>
-		</cfoutput>
+			</cfoutput>
 
 		</table>
 	</div>
@@ -62,9 +62,9 @@
 
 <div class = "row">
 		<div class="col-md-10 col-md-offset-1">
-		<form id="myForm">
+		<cfform id="myForm" action="addUsers.cfm" method="post">
 		    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-		    <!---Dropdown of User Names--->	
+		    	<!---Dropdown of User Names--->	
 			    <SELECT NAME="name1" id="name1" SIZE="1">
 						<OPTION value="0">
 						<cfoutput query="srchUsers">
@@ -72,21 +72,25 @@
 						</cfoutput> 
 					</SELECT>
 
-				<!---Dropdown of User Roles--->	
+					<!---Dropdown of User Roles--->	
 					<SELECT NAME="role1" id="role1" SIZE="1">
-					<OPTION>Select a User Role</OPTION>
-					<OPTION VALUE="ReadWrite">Read & Write</OPTION>
-					<OPTION VALUE="ReadOnly">Read Only</OPTION>
-					<OPTION VALUE="Owner">Owner</OPTION>
-					</SELECT>
-
-		       
+						<OPTION>Select a User Role</OPTION>
+						<OPTION VALUE="ReadWrite">Read & Write</OPTION>
+						<OPTION VALUE="ReadOnly">Read Only</OPTION>
+						<OPTION VALUE="Owner">Owner</OPTION>
+					</SELECT>   	
 		    </div>
 		 
 		    <div>
-		        <input type="button" id="btnAdd" value="add another name" />
-		        <input type="button" id="btnDel" value="remove name" />
+		      <input type="button" id="btnAdd" value="add another name" />
+		      <input type="button" id="btnDel" value="remove name" />
 		    </div>
-		</form>
+
+		    <div>
+		    	<input type="submit" value="submit">
+		    </div>
+
+
+		</cfform>
 	</div>
 </div>
