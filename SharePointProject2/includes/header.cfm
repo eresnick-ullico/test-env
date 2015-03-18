@@ -22,7 +22,10 @@
  
                 // manipulate the name/id values of the input inside the new element
                 newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
- 
+
+                // manipulate the role/id values of the input inside the new element
+                newElem.children(':last').attr('id', 'role' + newNum).attr('name', 'role' + newNum);
+
                 // insert the new element after the last "duplicatable" input field
                 $('#input' + num).after(newElem);
  

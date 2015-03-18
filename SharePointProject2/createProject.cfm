@@ -64,7 +64,23 @@
 		<div class="col-md-10 col-md-offset-1">
 		<form id="myForm">
 		    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-		        Name: <input type="text" name="name1" id="name1" />
+		    <!---Dropdown of User Names--->	
+			    <SELECT NAME="name1" id="name1" SIZE="1">
+						<OPTION value="0">
+						<cfoutput query="srchUsers">
+							<OPTION value="#ID#">#spUserFirstName# #spUserLastName#
+						</cfoutput> 
+					</SELECT>
+
+				<!---Dropdown of User Roles--->	
+					<SELECT NAME="role1" id="role1" SIZE="1">
+					<OPTION>Select a User Role</OPTION>
+					<OPTION VALUE="ReadWrite">Read & Write</OPTION>
+					<OPTION VALUE="ReadOnly">Read Only</OPTION>
+					<OPTION VALUE="Owner">Owner</OPTION>
+					</SELECT>
+
+		       
 		    </div>
 		 
 		    <div>
