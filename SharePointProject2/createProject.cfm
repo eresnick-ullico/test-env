@@ -19,6 +19,14 @@
 </cfquery>
 </cftransaction>
 
+<!---Set projectID variable to pass along to UserProject Join Table--->
+<cfoutput query="GetProjectInfo">
+	<cfset projectID = #id#>
+</cfoutput>
+
+<cfoutput>
+<cfparam name="form.projectID" default=#projectID#>
+</cfoutput>
 
 <!---Display the Project that was just created in a table--->
 <div class="row">
@@ -62,23 +70,26 @@
 
 <div class = "row">
 		<div class="col-md-10 col-md-offset-1">
-		<cfform id="myForm" action="addUsers.cfm" method="post">
+		<cfform id="addUsers" action="addUsers.cfm" method="post">
 		    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
 		    	<!---Dropdown of User Names--->	
-			    <SELECT NAME="name1" id="name1" SIZE="1">
+			    <SELECT NAME="UserID1" id="UserID1" SIZE="1">
 						<OPTION value="0">
 						<cfoutput query="srchUsers">
 							<OPTION value="#ID#">#spUserFirstName# #spUserLastName#
 						</cfoutput> 
 					</SELECT>
 
+					<!---Hidden field that inserts ProjectID--->
+					<input type="hidden" name="projectID1" id="projectID1" value="<cfoutput>#form.projectID#</cfoutput>" />
+
 					<!---Dropdown of User Roles--->	
-					<SELECT NAME="role1" id="role1" SIZE="1">
+					<SELECT NAME="Role1" id="Role1" SIZE="1">
 						<OPTION>Select a User Role</OPTION>
 						<OPTION VALUE="ReadWrite">Read & Write</OPTION>
 						<OPTION VALUE="ReadOnly">Read Only</OPTION>
 						<OPTION VALUE="Owner">Owner</OPTION>
-					</SELECT>   	
+					</SELECT>	
 		    </div>
 		 
 		    <div>

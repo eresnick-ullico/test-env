@@ -21,10 +21,10 @@
                 var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
  
                 // manipulate the name/id values of the input inside the new element
-                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+                newElem.children(':first').attr('id', 'UserID' + newNum).attr('name', 'UserID' + newNum);
 
                 // manipulate the role/id values of the input inside the new element
-                newElem.children(':last').attr('id', 'role' + newNum).attr('name', 'role' + newNum);
+                newElem.children(':last').attr('id', 'Role' + newNum).attr('name', 'Role' + newNum);
 
                 // insert the new element after the last "duplicatable" input field
                 $('#input' + num).after(newElem);
@@ -32,8 +32,8 @@
                 // enable the "remove" button
                 $('#btnDel').removeAttr('disabled');
  
-                // business rule: you can only add 5 names
-                if (newNum == 5)
+                // business rule: you can only add 12 names
+                if (newNum == 12)
                     $('#btnAdd').attr('disabled','disabled');
             });
  
