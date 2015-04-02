@@ -80,9 +80,6 @@
 						</cfoutput> 
 					</SELECT>
 
-					<!---Hidden field that inserts ProjectID--->
-					<input type="hidden" name="projectID1" id="projectID1" value="<cfoutput>#form.projectID#</cfoutput>" />
-
 					<!---Dropdown of User Roles--->	
 					<SELECT NAME="Role1" id="Role1" SIZE="1">
 						<OPTION>Select a User Role</OPTION>
@@ -91,7 +88,13 @@
 						<OPTION VALUE="Owner">Owner</OPTION>
 					</SELECT>	
 		    </div>
-		 
+
+		    <div>
+		    	<!---Hidden field that inserts ProjectID--->
+					<input type="hidden" name="projectID" id="projectID" value="<cfoutput>#form.projectID#</cfoutput>" />
+		 			<input type="hidden" name="Counter" id="Counter" value="" />
+		 		</div>
+		 		
 		    <div>
 		      <input type="button" id="btnAdd" value="add another name" />
 		      <input type="button" id="btnDel" value="remove name" />

@@ -31,7 +31,9 @@
  
                 // enable the "remove" button
                 $('#btnDel').removeAttr('disabled');
- 
+                
+                document.getElementById("Counter").value = newNum;
+
                 // business rule: you can only add 12 names
                 if (newNum == 12)
                     $('#btnAdd').attr('disabled','disabled');
