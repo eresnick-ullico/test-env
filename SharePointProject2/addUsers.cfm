@@ -12,7 +12,10 @@
 		<cfset userStruct['Role'] = form["Role#i#"]>
 		<cfset userStruct['ProjectID'] = form.ProjectID >
 </cfoutput>
-<cfdump var = #userStruct#>
+	<cfquery name="AddUsers" datasource="#application.db#" result="AddUsersResult">
+		INSERT INTO ProjectUserTable (ProjectID, UserID, Role)
+  	VALUES (#userStruct.ProjectID#, #userStruct.UserID#, "#userStruct.Role#");
+	</cfquery>
 </cfloop>
 
 
