@@ -1,23 +1,20 @@
 <cfdump var = #form# >
 
-
 <cfset userStruct = StructNew()>
 <cfset userStruct['UserID'] = 0 >
 <cfset userStruct['Role'] = "">
 <cfset userStruct['ProjectID'] = 0>
 
-
 <cfloop from = "1" to = "#form.counter#" index="i">
 <cfoutput>
-		<cfset userStruct#i# = StructNew()>
-		<cfset userStruct#i#['UserID'] = "form.UserID#i#">
-		<cfset userStruct#i#['Role'] = form.Role2 >
-		<cfset userStruct#i#['ProjectID'] = form.ProjectID >
+		<cfset userStruct = StructNew()>
+		<cfset userStruct['UserID'] = form["UserID#i#"]>
+		<cfset userStruct['Role'] = form["Role#i#"]>
+		<cfset userStruct['ProjectID'] = form.ProjectID >
 </cfoutput>
+<cfdump var = #userStruct#>
 </cfloop>
 
-
-<cfdump var = #userStruct#>
 
 
 <!--- <cfsccipt>
